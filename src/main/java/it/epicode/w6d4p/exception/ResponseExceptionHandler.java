@@ -26,5 +26,23 @@ public class ResponseExceptionHandler {
         return new ErrorResponse(e.getMessage());
     }
 
+    @ExceptionHandler(EmailYetUsedException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponse emailYetUsedExceptionHandler(EmailYetUsedException e){
+        return new ErrorResponse(e.getMessage());
+    }
+
+    @ExceptionHandler(LoginException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponse loginExceptionHandler(LoginException e){
+        return new ErrorResponse(e.getMessage());
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public ErrorResponse unauthorizedExceptionHandler(UnauthorizedException e){
+        return new ErrorResponse(e.getMessage());
+    }
+
 
 }
