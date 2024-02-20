@@ -8,6 +8,7 @@ import it.epicode.w6d4p.service.AutoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,7 @@ public class AutoreController {
     @Autowired
     private Cloudinary cloudinary;
     @GetMapping("/autori")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Page<Autore> getAll(Pageable pageable){
 
         return autoreService.cercaTuttiGliAutori(pageable);

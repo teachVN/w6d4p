@@ -17,4 +17,7 @@ public class UserDTO {
     private String name;
     @NotNull(message = "cognome obbligatorio")
     private String surname;
+    @NotNull(message = "ruolo obbligatorio")
+    private String role;
+
 }
